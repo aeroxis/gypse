@@ -19,15 +19,15 @@ This code is licensed under the `MIT License`_.
 Getting Started
 ---------------
 
-    pip install gypsy
+    pip install gypse
 
 Usage
 -----
 
 Gypsy comes with some sample data that you can clone and play with.
 
-    git clone https://github.com/aeroxis/gypsy /tmp/gypsy
+    git clone https://github.com/aeroxis/gypse /tmp/gypsy
     cd /tmp/gypsy
-    gypsy url-extractor ./samples/ --margins 5
+    gypse url-extractor ./samples/ --margins 5
 
 This will yield something like the following:
