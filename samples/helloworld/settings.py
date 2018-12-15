@@ -27,6 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+ADMIN_EMAIL = "admin@mysite.com"
+
+ADMIN_PHONE = "516-123-1234"
+
+MANAGER_EMAIL = "manager@gmail.com"
+
+MANAGER_PHONE = "(516) 543-2123"
+
 
 # Application definition
 

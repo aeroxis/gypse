@@ -10,7 +10,7 @@ dev_requires = ["bumpversion"] + requires + tests_requires + lint_requires
 
 setup(
     name="gypse",
-    version="0.1.5",
+    version="0.2",
     description="Gypse analyzes and reveals information of the text files that you have. It identifies things like URLs, E-Mails and Phone Numbers, which are difficult to extract.",
     long_description="\n\n".join([open("README.rst").read()]),
     license="MIT",

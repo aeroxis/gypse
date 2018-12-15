@@ -65,9 +65,9 @@ class ResourceExtractor(Base):
         self.regex = re.compile(resource_regexp, flags=re.IGNORECASE)
         self.lines_extracted = lines_extracted
 
-    def extract_url(self, line):
+    def extract_resource(self, line):
         '''
-        Extracts URL from a line if it exists.
+        Extracts the Resources from a line if it exists.
         '''
         results = self.regex.findall(line)
         if results:
@@ -82,7 +82,7 @@ class ResourceExtractor(Base):
         for path_to_file, content in self.lines_extracted.items():
             for line_number, line in content.items():
                 
-                urls_in_line = self.extract_url(line)
+                urls_in_line = self.extract_resource(line)
                 for u in urls_in_line:
 
                     if u in results:

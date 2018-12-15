@@ -2,7 +2,7 @@ import click
 import logging
 import os
 
-from gypse.constants import DEFAULT_CONFIG_HOME, REGEX_URL, REGEX_PHONE
+from gypse.constants import DEFAULT_CONFIG_HOME, REGEX_URL, REGEX_PHONE, REGEX_EMAIL
 from gypse.extractor import LineExtractor, ResourceExtractor
 from gypse.logging import configureLogger, getLogger
 from gypse.printer import ResultsPrinter
@@ -25,9 +25,11 @@ def gypse(debug):
 @gypse.command()
 @click.argument('path')
 @click.option('-m', '--margins', default=2, help="Margins allow you to see more or less from the line that was found.")
-@click.option('-e', '--extractor', multiple=True, type=click.Choice(['email', 'phone', 'url']))
+@click.option('-e', '--extractor', multiple=True, type=click.Choice(['email', 'phone', 'url']), help="email - extracts email; phone - extracts phone numbers; url - extracts urls")
 def extract(path, margins, extractor):
-
+    """
+    Extracts details from a directory or files based on the extractors you request: email, phone or url.
+    """
     logger.debug("Margins will be set to: %d" % margins)
     logger.debug("Extractors specified in call: %s" % str(extractor))
 
@@ -48,7 +50,7 @@ def extract(path, margins, extractor):
             resource_regex = REGEX_PHONE
         elif e == 'email':
             resource_type = 'E-Mail'
-            resource_regex = REGEX_URL
+            resource_regex = REGEX_EMAIL
         
 
         resource_extractor = ResourceExtractor(extracted_lines, resource_regex)
