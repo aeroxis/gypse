@@ -7,7 +7,10 @@
 What is Gypse?
 --------------
 
-Gypse analyzes and reveals information of the text files that you have. It identifies things like URLs, E-Mails and Phone Numbers, which are difficult to extract 
+Have you ever tried looking for interesting things like URLs, E-Mails or Phone numbers in a bunch of text files? 
+That is going to get really tough, really fast. It can be downright painful. 
+
+Gypse is here to help. You simply install 'gypsy' with 'pip', and have Gypse look at your text files.
 
 .. image:: https://media.githubusercontent.com/media/aeroxis/gypse/master/images/gypsy_screen_grab.gif
     :target: https://pypi.org/project/gypse/
