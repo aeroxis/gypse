@@ -1,7 +1,7 @@
 import coloredlogs
 import logging
 
-from gypsy.constants import DEFAULT_LOGGER_NAME
+from gypse.constants import DEFAULT_LOGGER_NAME
 
 def configureLogger(level):
 

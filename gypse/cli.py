@@ -2,39 +2,27 @@ import click
 import logging
 import os
 
-from gypsy.constants import DEFAULT_CONFIG_HOME
-from gypsy.extractor import LineExtractor, URLExtractor
-from gypsy.logging import configureLogger, getLogger
-from gypsy.printer import LinePrinter
+from gypse.constants import DEFAULT_CONFIG_HOME
+from gypse.extractor import LineExtractor, URLExtractor
+from gypse.logging import configureLogger, getLogger
+from gypse.printer import LinePrinter
 
 logger = getLogger()
 
 @click.group()
 @click.option('--debug/--no-debug')
-def gypsy(debug):
+def gypse(debug):
 
     if debug:
         configureLogger("DEBUG")
 
-        logger.debug("Running Gypsy in DEBUG mode.")
+        logger.debug("Running Gypse in DEBUG mode.")
     else:
         configureLogger("INFO")
         
-    logger.info("Starting Gypsy...")
+    logger.info("Starting Gypse...")
 
-# @gypsy.command()
-# def setup():
-#     """
-#     Sets up Gypsy on your machine.
-#     """
-#     logger.info("Setting up Gypsy")
-
-#     # create default config home
-#     if not os.path.exists(DEFAULT_CONFIG_HOME):
-#         logger.info("Created directory '%s'" % DEFAULT_CONFIG_HOME)
-#         os.makedirs(DEFAULT_CONFIG_HOME)
-
-@gypsy.command()
+@gypse.command()
 @click.argument('path')
 @click.option('-m', '--margins', default=2, help="Margins allow you to see more or less from the line that was found.")
 def url_extractor(path, margins):
@@ -73,12 +61,3 @@ def url_extractor(path, margins):
             else:
                 printer.print_separator()
             printer.print()
-
-        # for detail in details:
-        #     path_to_file, line_no, line = detail
-            
-        #     click.secho("    Path:    %s" % path_to_file, fg='magenta')
-        #     click.secho("    Line No: %s" % line_no, fg='magenta')
-        #     click.secho("    Line:    %s" % line, fg='magenta')
-        #     click.secho("    %s" % sub_head_line, fg='magenta')
-

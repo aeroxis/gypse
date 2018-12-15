@@ -1,9 +1,9 @@
 import os
 import re
 
-from gypsy.base import Base
-from gypsy.constants import REGEX_URL
-from gypsy.data.url import URL
+from gypse.base import Base
+from gypse.constants import REGEX_URL
+from gypse.data.url import URL
 
 class LineExtractor(Base):
     '''

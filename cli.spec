@@ -3,8 +3,8 @@
 block_cipher = None
 
 
-a = Analysis(['gypsy/cli.py'],
-             pathex=['/Users/davydany/projects/gypsy'],
+a = Analysis(['gypse/cli.py'],
+             pathex=['/Users/davydany/projects/gypse'],
              binaries=[],
              datas=[],
              hiddenimports=[],

@@ -9,19 +9,19 @@ dev_requires = ["bumpversion"] + requires + tests_requires + lint_requires
 
 
 setup(
-    name="gypsy",
+    name="gypse",
     version="0.1",
     description="Project and Code Analysis tool to find things out about your code",
     long_description="\n\n".join([open("README.rst").read()]),
     license="MIT",
     author="David G. Daniel",
     author_email="davydany@aeroxis.com",
-    url="https://gypsy.readthedocs.org",
+    url="https://gypse.readthedocs.org",
     packages=find_packages(),
     install_requires=requires,
     entry_points={
         "console_scripts": [
-            "gypsy = gypsy.cli:gypsy"
+            "gypse = gypse.cli:gypse"
         ]
     },
     classifiers=[

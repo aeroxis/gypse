@@ -64,9 +64,9 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            py.test --cov gypsy
-            flake8 gypsy
-            black --check gypsy
+            py.test --cov gypse
+            flake8 gypse
+            black --check gypse
 
       - store_artifacts:
           path: test-reports

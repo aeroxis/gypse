@@ -11,4 +11,4 @@ repos:
       name: flake8
       language: system
       entry: flake8 --config=setup.cfg
-      files: (gypsy|tests)/.*\.py$
+      files: (gypse|tests)/.*\.py$

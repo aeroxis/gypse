@@ -1,4 +1,4 @@
-from gypsy.logging import getLogger
+from gypse.logging import getLogger
 
 class Base(object):
 

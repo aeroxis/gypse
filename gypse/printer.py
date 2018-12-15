@@ -1,7 +1,7 @@
 import click
 import os
 
-from gypsy.base import Base
+from gypse.base import Base
 
 class LinePrinter(Base):
 
