@@ -5,6 +5,7 @@ gypsy
 .. image:: https://travis-ci.org/aeroxis/gypsy.svg?branch=master
    :target: https://travis-ci.org/aeroxis/gypsy
 
+.. image:: gnu.png
 
 License
 -------
@@ -24,4 +25,8 @@ Usage
 
 Gypsy comes with some sample data that you can clone and play with.
 
-    git clone 
+    git clone https://github.com/aeroxis/gypsy /tmp/gypsy
+    cd /tmp/gypsy
+    gypsy url-extractor ./samples/ --margins 5
+
+This will yield something like the following:
