@@ -57,11 +57,12 @@ class LineExtractor(Base):
 
         return extracted
 
-class URLExtractor(Base):
+class ResourceExtractor(Base):
 
-    def __init__(self, lines_extracted):
-        super(URLExtractor, self).__init__()
-        self.regex = re.compile(REGEX_URL, flags=re.IGNORECASE)
+    def __init__(self, lines_extracted, resource_regexp):
+        super(ResourceExtractor, self).__init__()
+        self.resource_regexp = resource_regexp
+        self.regex = re.compile(resource_regexp, flags=re.IGNORECASE)
         self.lines_extracted = lines_extracted
 
     def extract_url(self, line):

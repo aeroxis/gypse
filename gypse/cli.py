@@ -2,15 +2,15 @@ import click
 import logging
 import os
 
-from gypse.constants import DEFAULT_CONFIG_HOME
-from gypse.extractor import LineExtractor, URLExtractor
+from gypse.constants import DEFAULT_CONFIG_HOME, REGEX_URL
+from gypse.extractor import LineExtractor, ResourceExtractor
 from gypse.logging import configureLogger, getLogger
-from gypse.printer import LinePrinter
+from gypse.printer import ResultsPrinter
 
 logger = getLogger()
 
 @click.group()
-@click.option('--debug/--no-debug')
+@click.option('--debug/--no-debug', help="Prints additional details when Gypse does it's work, so you can see what's going on under the hood.")
 def gypse(debug):
 
     if debug:
@@ -25,39 +25,24 @@ def gypse(debug):
 @gypse.command()
 @click.argument('path')
 @click.option('-m', '--margins', default=2, help="Margins allow you to see more or less from the line that was found.")
-def url_extractor(path, margins):
+@click.option('-e', '--extractor', multiple=True, type=click.Choice(['email', 'phone', 'url']))
+def extract(path, margins, extractor):
+
+    logger.debug("Margins will be set to: %d" % margins)
+    logger.debug("Extractors specified in call: %s" % str(extractor))
 
     logger.info("Analyzing Files...")
-    rows, columns = os.popen('stty size', 'r').read().split()
 
     # scan the files in the given path 
     line_extractor = LineExtractor(path)
     extracted_lines = line_extractor.extract()
 
     # extract URLs from each line
-    url_extractor = URLExtractor(extracted_lines)
-    extracted_urls = url_extractor.extract()
+    if 'url' in extractor:
+        resource_type = "URL"
+        resource_extractor = ResourceExtractor(extracted_lines, REGEX_URL)
+        results = resource_extractor.extract()
 
-    # present report
-    logger.info("Presenting Results...")
-    main_head_line = '-' * int(columns)
-    sub_head_line = '+' * (int(columns) - 4)
-    for url, details in extracted_urls.items():
-
-        header = "URL: %s" % url
-
-        click.secho(main_head_line, fg='green', bold=True)
-        click.secho(header, fg='green', bold=True)
-        click.secho(main_head_line, fg='green', bold=True)
-        
-        header_printed = False
-        for detail in details:
-
-            path_to_file, line_no, line = detail
-            printer = LinePrinter(path_to_file, line_no, margins)
-            if not header_printed:
-                printer.print_header()
-                header_printed = True
-            else:
-                printer.print_separator()
-            printer.print()
+        # present report
+        printer = ResultsPrinter(resource_type, results)
+        printer.print(margins=margins)
