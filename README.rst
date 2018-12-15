@@ -1,6 +1,5 @@
-gypsy
-#############################
-
+.. image:: https://media.githubusercontent.com/media/aeroxis/gypse/master/images/logo.png
+    :target: https://pypi.org/project/gypse/
 
 .. image:: https://travis-ci.org/aeroxis/gypse.svg?branch=master
    :target: https://travis-ci.org/aeroxis/gypse
