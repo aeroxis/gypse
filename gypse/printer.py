@@ -18,7 +18,7 @@ class ResultsPrinter(Base):
         main_head_line = '-' * int(columns)
         sub_head_line = '+' * (int(columns) - 4)
         for resource, details in self.results.items():
-
+            
             header = "%s: %s" % (self.resource_type, resource)
 
             click.secho(main_head_line, fg='green', bold=True)
