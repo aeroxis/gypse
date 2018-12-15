@@ -2,7 +2,7 @@ import click
 import logging
 import os
 
-from gypse.constants import DEFAULT_CONFIG_HOME, REGEX_URL
+from gypse.constants import DEFAULT_CONFIG_HOME, REGEX_URL, REGEX_PHONE
 from gypse.extractor import LineExtractor, ResourceExtractor
 from gypse.logging import configureLogger, getLogger
 from gypse.printer import ResultsPrinter
@@ -38,9 +38,20 @@ def extract(path, margins, extractor):
     extracted_lines = line_extractor.extract()
 
     # extract URLs from each line
-    if 'url' in extractor:
-        resource_type = "URL"
-        resource_extractor = ResourceExtractor(extracted_lines, REGEX_URL)
+    for e in extractor:
+        
+        if e == 'url':
+            resource_type = 'URL'
+            resource_regex = REGEX_URL
+        elif e == 'phone':
+            resource_type = 'Phone Number'
+            resource_regex = REGEX_PHONE
+        elif e == 'email':
+            resource_type = 'E-Mail'
+            resource_regex = REGEX_URL
+        
+
+        resource_extractor = ResourceExtractor(extracted_lines, resource_regex)
         results = resource_extractor.extract()
 
         # present report
