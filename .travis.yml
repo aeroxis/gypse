@@ -1,0 +1,17 @@
+language: python
+python:
+- '3.6'
+install:
+- pip install -r requirements/test.txt
+- pip install -r docs/requirements.txt
+script:
+- make tests
+deploy:
+  provider: pypi
+  distributions: bdist_wheel
+  user: davydany
+  password:
+    secure: nhaBAgq1o53xSMM/PEUa2j2LDxBI67kCTcSLYgIE5wVUe7EU8Sc48Id9Yj+i0fzxWcFgxPCZChfuH0OQo+4y9or5oiEJF0jeOYg2UeipQo2AGIpvV1mk5jAn5/uknczAap0ugpuUyIGmkYJJb5GhrEa12+goucxVPJ7kajGAEe1RL1gE3HAR/YkEu9H+LWix5YbA0lE7B1a/lm9+T4MkvheQeuYPGTRFqioiV5SA1iiGrgvLDuiAt0ZUzoNTWA/jTpiFTXOUAXGbVEGyrscOit2mknXPqs2JFAHl5GJhKDjsDOhgNB5s+M1ChlQCSrSvED3PIsQ4brRBYPTV/TOGziDrDJA5nOAHhTgTv+s/PBQ2Y62vEZfxZrks/IWlQvuZnyqB77tXSKLY87z/ID8KCajzsIoLpzv1E9p4IoZ1RZOkSYMyps7cFJtUMWqfIsyxfDZ4ZaNNdq7gbAkcJsHlP5C5QWRl/zo0X6txfdNvkTcpM365/P9fo5NtkUdsxcYRGlkK0guJpjSzGpwm+yrgtV+4OCEms11lVq1P9I81zFoAYSyF8bzA4Y7CliBkVi2GDRHI1n2tOdEIHxV9ROGyJFW+LgSshbwLarvFNbTEOukEjIrE/FDrfwhxBahhwWXlt/6Q1a3+34qz0DEIIDPui4a9OkYuLTaAiBmgQAqI0IM=
+  on:
+    repo: aeroxis/gypsy
+    branch: master
