@@ -1,0 +1,4 @@
+altgraph==0.16.1
+macholib==1.11
+pefile==2018.8.8
+pyinstaller==3.4

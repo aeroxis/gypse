@@ -1,0 +1,4 @@
+Click==7.0
+requests==2.21.0
+coloredlogs==10.0
+humanfriendly==4.17
