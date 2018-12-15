@@ -3,7 +3,6 @@ import re
 
 from gypse.base import Base
 from gypse.constants import REGEX_URL
-from gypse.data.url import URL
 
 class LineExtractor(Base):
     '''
@@ -85,7 +84,6 @@ class URLExtractor(Base):
                 urls_in_line = self.extract_url(line)
                 for u in urls_in_line:
 
-                    # u = URL(u)
                     if u in results:
                         results[u].append(
                             (path_to_file, line_number, line)

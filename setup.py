@@ -2,7 +2,7 @@ import sys
 
 from setuptools import setup, find_packages
 
-requires = ["click"]
+requires = ["click", "coloredlogs==10.0", "humanfriendly==4.17"]
 tests_requires = ["pytest", "pytest-cache", "pytest-cov"]
 lint_requires = ["flake8", "black"]
 dev_requires = ["bumpversion"] + requires + tests_requires + lint_requires
