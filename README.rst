@@ -5,7 +5,8 @@ gypsy
 .. image:: https://travis-ci.org/aeroxis/gypsy.svg?branch=master
    :target: https://travis-ci.org/aeroxis/gypsy
 
-.. image:: gnu.png
+.. image:: https://media.githubusercontent.com/media/aeroxis/gypsy/master/images/gypsy_screenshot.png
+    :target: https://github.com/aeroxis/gypsy
 
 License
 -------
